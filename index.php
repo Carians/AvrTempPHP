@@ -2,29 +2,44 @@
 
 class temp
 {
-    public $file;
+    private $file;
 
     protected function fileFlirt()
     {
+         $flirtedFile = $this->file;
+         $keys = 0;
+         $save = 0;
+         $val = true;
+             if (empty($this->file))
+            {
+                $val = false;
+            }
+
         try {
-            $flirtedFile = $this->file;
-            $keys = 0;
-            $save = 0;
             foreach ($flirtedFile as $k => $v) {
                 if ( $k > 0 ) {
                     // echo substr($v, 80, 8). "<br>";
 
                     $save += (int)substr($v, 80, 8 );
                     $keys++;
-                } if ((is_int($v)==0)&&$k<0)
+                } //if ($v<100||(is_string($v)==false)&&$k<=0)
+                if ($v=="")
                 {
+                    $val = false;
+                    throw new Exception('Podano litele lol?'.$k."||".$save);
+                }
+                if ($k<=0&&$v>100)
+                {
+                    $val = false;
                     throw new Exception('Podano litele lol?'.$k."||".$save);
                 }
 
-                //return $flirtedFile;
+            }
+            if ($val == true) {
+                return $this->count($save, $keys);
+            }else echo "<br><b><span style='color:red'>File is empty!</span></b>";
 
-            } return $this->count($save, $keys);
-
+           // return $flirtedFile;
         } catch (Exception $e)
         {
             return $e;
@@ -36,7 +51,6 @@ class temp
 
 
     }
-
     protected function count($sum, $num)
     {
         return $sum/$num;
@@ -49,26 +63,35 @@ class temp
 
     public function openFile($path)
     {
-        $this->file = file($path);
-        echo '<br>'.$this->fileFlirt();
+        try {
+            if (file_exists($path)==false){
+                throw new Exception("No file found!");
+            }
+            else
+            {
+                $this->file=file($path);
+                echo '<br>' . $this->fileFlirt();
+            }
+        } catch (Exception $e)
+        {
+            echo "<br><b><span style='color:red'>No file found!</span></b>";
+           // return "No file couldn't be found".$e; //Developer info
+        }
     }
 }
 
 $count = new temp;
 $count->openFile('temp.txt');
-$count->freeMemory();
 $count->openFile('temp2.txt');
-$count->freeMemory();
 $count->openFile('temp3.txt');
+$count->openFile('temp42.txt');
 $count->freeMemory();
-$count->openFile('temp4.txt');
-$count->freeMemory();
 
 
 
 
-$aa = (int)'heheh';
-echo '<br>'.$aa;
+/*$aa = (int)'heheh';
+echo '<br>'.$aa;*/
 /**
  * Created by PhpStorm.
  * User: User
