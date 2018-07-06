@@ -30,7 +30,8 @@ class temp
 
             // return $flirtedFile;
         } catch (Exception $e) {
-            return $e.'<br><span style="color: red"><b>Your file is incorrect!</span></b> ';
+            //return $e.'<br><span style="color: red"><b>Your file is incorrect!</span></b> ';
+            return '<br><span style="color: red"><b>Your file is incorrect!</span></b> ';
         }
 
 
@@ -85,7 +86,7 @@ class temp
 $count = new temp;
 $count->openFile('temp.txt');
 //$count->openFile('temp2.txt');
-//$count->openFile('temp3.txt');
+$count->openFile('temp3.txt');
 $count->openFile('temp4.txt');
 $count->freeMemory();
 
