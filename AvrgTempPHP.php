@@ -85,7 +85,7 @@ class temp
 
 $count = new temp;
 $count->openFile('temp.txt');
-//$count->openFile('temp2.txt');
+$count->openFile('temp2.txt');
 $count->openFile('temp3.txt');
 $count->openFile('temp4.txt');
 $count->freeMemory();
