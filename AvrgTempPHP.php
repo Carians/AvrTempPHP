@@ -84,10 +84,7 @@ class temp
 }
 
 $count = new temp;
-$count->openFile('temp.txt');
-$count->openFile('temp2.txt');
-$count->openFile('temp3.txt');
-$count->openFile('temp4.txt');
+$count->openFile('example (1).txt');
 $count->freeMemory();
 
 
@@ -97,7 +94,7 @@ $count->freeMemory();
 echo '<br>'.$aa;*/
 /**
  * Created by PhpStorm.
- * User: User
+ * User: CarianS
  * Date: 04/07/2018
  * Time: 18:34
  */
