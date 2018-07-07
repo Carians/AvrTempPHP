@@ -82,12 +82,12 @@ class temp
         }
     }
 }
-
+/*
 $count = new temp;
 $count->openFile('example (1).txt');
 $count->freeMemory();
 
-
+*/
 
 
 /*$aa = (int)'heheh';
