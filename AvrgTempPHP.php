@@ -20,9 +20,14 @@ class temp
             foreach ($flirtedFile as $k => $v) {
                 if ( $k > 0 ) {
                     // echo substr($v, 80, 8). "<br>";
+                    if (is_numeric(substr($v, 80, 8))==true) {
+                        $save += (int)substr($v, 80, 8);
+                        $keys++;
+                    }else
+                    {
+                        throw new Exception('Error'.$v);
+                    }
 
-                    $save += (int)substr($v, 80, 8);
-                    $keys++;
                 } //if ($v<100||(is_string($v)==false)&&$k<=0)
             }
 
